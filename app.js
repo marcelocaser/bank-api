@@ -2,6 +2,8 @@ import express from "express";
 import banksRouter from "./routes/banksRouter.js";
 import mongoose from "mongoose";
 
+// Comentario para iniciar o uso do Git
+
 (async () => {
   try {
     console.log("Conectando ao MongoDB... ");
