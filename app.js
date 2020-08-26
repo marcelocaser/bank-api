@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 // Comentario para iniciar o uso do Git
 
-// inicia arquivo de variais de ambiente usando dotenv
+// inicia arquivo de variaveis de ambiente usando dotenv
 dotenv.config();
 // busca as variaveis de ambiente
 const { USER_DB, USER_PWD, PORT } = process.env;
