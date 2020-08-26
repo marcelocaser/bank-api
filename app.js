@@ -1,14 +1,20 @@
 import express from "express";
 import banksRouter from "./routes/banksRouter.js";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 // Comentario para iniciar o uso do Git
+
+// inicia arquivo de variais de ambiente usando dotenv
+dotenv.config();
+// busca as variaveis de ambiente
+const { USER_DB, USER_PWD, PORT } = process.env;
 
 (async () => {
   try {
     console.log("Conectando ao MongoDB... ");
     await mongoose.connect(
-      "mongodb+srv://igti:fullstack@cluster0.pv9x2.mongodb.net/igti_modulo_4?retryWrites=true&w=majority",
+      `mongodb+srv://${USER_DB}:${USER_PWD}@cluster0.pv9x2.mongodb.net/igti_modulo_4?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -26,6 +32,6 @@ const app = express();
 app.use(express.json());
 app.use(banksRouter);
 
-app.listen(3000, () => {
-  console.log("API Bank Started...");
+app.listen(PORT, () => {
+  console.log(`API Bank Started at port ${PORT}...`);
 });
