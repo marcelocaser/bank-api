@@ -31,6 +31,7 @@ const app = express();
 
 app.use(express.json());
 app.use(banksRouter);
+app.use('/images', express.static('public'));
 
 app.listen(PORT, () => {
   console.log(`API Bank Started at port ${PORT}...`);
